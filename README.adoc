@@ -1,0 +1,4 @@
+= jiggle
+Suprnova <nova@suprnova.dev>
+
+*jiggle* is my personal configuration for my NixOS guest on WSL of the same name.
