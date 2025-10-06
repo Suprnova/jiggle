@@ -86,9 +86,15 @@
         dev = "nix-shell --run \"code \${PWD##*/}.code-workspace\"";
       };
 
-      # required starship config
       initContent = ''
+        # required starship config
         eval "$(starship init zsh)"
+
+        # for creating dev environments with nix-shell & vscode
+        function initdev() {
+          cp "/etc/nixos/dev/''${1}/''${1}.code-workspace" ./''${PWD##*/}.code-workspace
+          cp "/etc/nixos/dev/''${1}/shell.nix" .
+        }
       '';
     };
 

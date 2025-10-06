@@ -1,0 +1,93 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.cpptools"
+        ]
+    },
+    "settings": {
+        "C_Cpp.default.cStandard": "c11",
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-x86"
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "debug active file",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}",
+                "args": [
+                    "${input:inputFile}"
+                ],
+                "cwd": "${fileDirname}",
+                "MIMode": "gdb",
+                "preLaunchTask": "build active file (for debug)",
+                "miDebuggerPath": "gdb"
+            }
+        ],
+        "inputs": [
+            {
+                "id": "inputFile",
+                "type": "promptString",
+                "description": "input file to pass",
+                "default": "input.txt"
+            }
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "type": "cppbuild",
+                "label": "build active file (for debug)",
+                "command": "gcc",
+                "args": [
+                    "-O0",
+                    "-fdiagnostics-color=always",
+                    "-g",
+                    "${file}",
+                    "-o",
+                    "${fileDirname}/${fileBasenameNoExtension}"
+                ],
+                "options": {
+                    "cwd": "${fileDirname}"
+                },
+                "problemMatcher": [
+                    "$gcc"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
+            {
+                "type": "cppbuild",
+                "label": "build active file (for release)",
+                "command": "gcc",
+                "args": [
+                    "-O2",
+                    "-Wall",
+                    "-std=c11",
+                    "-o",
+                    "${fileDirname}/${fileBasenameNoExtension}",
+                    "${file}"
+                ],
+                "options": {
+                    "cwd": "${fileDirname}"
+                },
+                "problemMatcher": [
+                    "$gcc"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            }
+        ]
+    }
+}
