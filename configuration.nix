@@ -18,7 +18,11 @@
     ffmpeg
     wget
   ];
+
+  # vscode remote compatibility
+  # https://nix-community.github.io/NixOS-WSL/how-to/vscode.html
   programs.nix-ld.enable = true;
+
   programs.nano = {
     enable = true;
     nanorc = ''
@@ -42,6 +46,10 @@
     home.stateVersion = "25.05";
     home.username = "nova";
     
+    # ssh
+    programs.ssh.enable = true;
+    services.ssh-agent.enable = true;
+
     # git
     programs.git = {
       enable = true;

@@ -2,3 +2,18 @@
 Suprnova <nova@suprnova.dev>
 
 *jiggle* is my personal configuration for my NixOS guest on WSL of the same name.
+
+== Additional Configuration
+
+=== Git
+
+WARNING: Necessary for authenticated Git functionality.
+
+Create an SSH key pair for the email in `home-manager.users.nova.programs.git.userEmail` (_nova@suprnova.dev_ by default),
+and add it to ssh-agent.
+
+=== yt-dlp
+
+TIP: Optional for authenticated yt-dlp functionality.
+
+Launch Firefox and log in to YouTube with your credentials, then run `yt-dlp --cookies-from-browser firefox --cookies ~/.config/.yt-dlp-cookies`.
