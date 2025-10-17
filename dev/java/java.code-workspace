@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "redhat.java",
+            "vscjava.vscode-java-debug"
+        ]
+    },
+    "settings": {
+        "files.exclude": {
+            "shell.nix": true
+        },
+        "java.format.settings.url": ".vscode/java-formatter.xml"
+    }
+}

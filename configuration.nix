@@ -92,8 +92,8 @@
 
         # for creating dev environments with nix-shell & vscode
         function initdev() {
-          cp "/etc/nixos/dev/''${1}/''${1}.code-workspace" ./''${PWD##*/}.code-workspace
-          cp "/etc/nixos/dev/''${1}/shell.nix" .
+          cp -a "/etc/nixos/dev/''${1}/"/. .
+          mv "./''${1}.code-workspace" ./''${PWD##*/}.code-workspace
         }
       '';
     };
